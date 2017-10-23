@@ -13,12 +13,20 @@ import {getUserConstructor, generateUser} from './helpers/utils'
 // totally fine (the client will handle the default)
 // so don't worry about checking that case.
 
+test('toProfileJSONFor returns the correct object', () => {
+  const userOverrides = {
+    image: 'https://placehold.it/64',
+  }
+  const user = generateUser(userOverrides)
+  const result = user.toProfileJSONFor()
+  expect(result).toMatchObject(userOverrides)
+})
 
 //////// Elaboration & Feedback /////////
 // When you've finished with the exercises:
 // 1. Copy the URL below into your browser and fill out the form
 // 2. remove the `.skip` from the test below
-// 3. Change submitted from `false` to `true`
+// 3. Change submitted from `false` to `true` 
 // 4. And you're all done!
 /*
 http://ws.kcd.im/?ws=Testing&e=Fix%20Bugs&em=luke.fiji@gmail.com*/
