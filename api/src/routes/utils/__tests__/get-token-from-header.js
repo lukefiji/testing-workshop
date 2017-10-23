@@ -22,14 +22,16 @@ test.skip('this is the title of your test', () => {
   // but you can do it however you like.
 })
 
-test('token exists', () => {
-  const token = getTokenFromHeader(tokenReq('Token Blah.Blah.Blah'))
+test('getTokenFromHeader returns a token if a token is in header', () => {
+  const req = tokenReq('Token Blah.Blah.Blah')
+  const token = getTokenFromHeader(req)
   expect(token).toBe('Blah.Blah.Blah')
 })
 
-test('invalid token in header', () => {
-  const token = getTokenFromHeader(tokenReq())
-  expect(token).toBe(null)
+test('getTokenFromHeader returns null if no token in header', () => {
+  const req = tokenReq()
+  const token = getTokenFromHeader(req)
+  expect(token).toBeNull()
 })
 
 function tokenReq(req) {

@@ -19,6 +19,22 @@
 // it up if needed. Then continue the cycle until you cover all use cases.
 import arrayify from '../arrayify'
 
+test('arrayify() with no arguments returns an array', () => {
+  const result = arrayify()
+  expect(result).toEqual([])
+})
+
+test('arrayify with an array as an argument returns the same array', () => {
+  const input = ['test']
+  const result = arrayify(input)
+  expect(result).toEqual(input)
+})
+
+test('arrayify with a non-array argument returns it in an array', () => {
+  const input = 'text'
+  const result = arrayify(input)
+  expect(result).toEqual([input])
+})
 
 //////// Elaboration & Feedback /////////
 // When you've finished with the exercises:
@@ -28,8 +44,8 @@ import arrayify from '../arrayify'
 // 4. And you're all done!
 /*
 http://ws.kcd.im/?ws=Testing&e=TDD&em=luke.fiji@gmail.com*/
-test.skip('I submitted my elaboration and feedback', () => {
-  const submitted = false // change this when you've submitted!
+test('I submitted my elaboration and feedback', () => {
+  const submitted = true // change this when you've submitted!
   expect(true).toBe(submitted)
 })
 ////////////////////////////////
